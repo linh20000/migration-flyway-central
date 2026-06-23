@@ -1,0 +1,1 @@
+alter table users.shift_time alter column note type varchar(225);

@@ -1,0 +1,1 @@
+alter table kafka_failed_messages add column is_deleted boolean default false;

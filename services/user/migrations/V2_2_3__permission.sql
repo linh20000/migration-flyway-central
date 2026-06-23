@@ -1,0 +1,2 @@
+delete from users.permissions where group_id = (SELECT id FROM permission_groups WHERE name = 'SALE - Dữ liệu khách hàng');
+delete from users.permission_groups where name = 'SALE - Dữ liệu khách hàng';

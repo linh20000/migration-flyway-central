@@ -1,0 +1,1 @@
+alter table travel_schedule add column images text[];

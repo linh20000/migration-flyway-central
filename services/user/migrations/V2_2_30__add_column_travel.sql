@@ -1,0 +1,1 @@
+alter table travel_schedule add column is_deleted bool not null default false;

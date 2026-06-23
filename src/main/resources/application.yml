@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: MIGRATION-SERVICE
+  datasource:
+    url: ${POSTGRESQL_DATABASE_URL}
+    username: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      show_sql: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+
+  flyway:
+    user: ${POSTGRESQL_USERNAME}
+    ignore-missing-migrations: true
+    out-of-order: true
+
+logging:
+  level:
+    org:
+      springframework: ERROR

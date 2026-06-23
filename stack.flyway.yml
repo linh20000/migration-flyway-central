@@ -1,0 +1,61 @@
+version: "3.8"
+
+x-flyway-common: &flyway-common
+  image: flyway/flyway:10.17
+  command: >
+    -locations=filesystem:/flyway/sql
+    -baselineOnMigrate=true
+    migrate
+  deploy:
+    replicas: 1
+    restart_policy:
+      condition: none           # chạy 1 lần rồi thoát
+    placement:
+      constraints:
+        - node.hostname == iss365
+  networks:
+    - ommanisoft
+services:
+  flyway-accountant:
+    image: flyway/flyway:10.17
+    command: >
+      -locations=filesystem:/flyway/sql
+      -baselineOnMigrate=true
+      -connectRetries=30
+      migrate
+    env_file:
+      - /opt/global/flyway/.env.flyway.accountant
+    volumes:
+      - ./services/accountant/migrations:/flyway/sql:ro
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: none
+      placement:
+        constraints:
+          - node.hostname == iss365
+    networks: [ommanisoft]
+
+  flyway-user:
+    image: flyway/flyway:10.17
+    command: >
+      -locations=filesystem:/flyway/sql
+      -baselineOnMigrate=true
+      -connectRetries=30
+      migrate
+    env_file:
+      - /opt/global/flyway/.env.flyway.user
+    volumes:
+      - ./services/user/migrations:/flyway/sql:ro
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: none
+      placement:
+        constraints:
+          - node.hostname == iss365
+    networks: [ ommanisoft ]
+
+networks:
+  ommanisoft:
+    external: true

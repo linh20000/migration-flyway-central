@@ -1,0 +1,1 @@
+alter table users.petitions add column note varchar;

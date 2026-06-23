@@ -1,0 +1,1 @@
+alter table organizational_structures drop column manager_level;

@@ -1,0 +1,1 @@
+alter table users.shifts alter column name type varchar(225);

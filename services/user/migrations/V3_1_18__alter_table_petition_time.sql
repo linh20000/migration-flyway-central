@@ -1,0 +1,1 @@
+alter table users.petition_times add column is_deleted boolean not null default false;

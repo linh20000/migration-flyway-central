@@ -1,0 +1,1 @@
+alter table users.petitions add column is_explained boolean default false;

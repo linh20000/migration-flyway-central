@@ -1,0 +1,1 @@
+alter table users.petitions alter column name type varchar(225);

@@ -1,0 +1,2 @@
+ALTER TABLE users.transaction_hitories
+    ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
