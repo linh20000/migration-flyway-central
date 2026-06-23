@@ -47,7 +47,6 @@ mvn flyway:migrate@<service_name> -P <node>
 ```
 
 ### Chú ý: nhớ thay '<service_name>' ở bước 3,5 bằng tên service ở bước 2
-### Mọi thắc mắc liên hệ hungnd@trithucmoi.co
 
 ### chạy migrate ./migrate.sh user dev
 ### chạy tạo migrate ./make-migrate.sh user 4_0_1 create_table_package
